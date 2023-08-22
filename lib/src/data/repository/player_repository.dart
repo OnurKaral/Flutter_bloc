@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:studio_flutter/data/model/player_response/player.dart';
-import 'package:studio_flutter/data/model/player_response/player_response.dart';
-import 'package:studio_flutter/injector.dart';
-import 'package:studio_flutter/utils/constants.dart';
+import 'package:studio_flutter/src/data/model/player_response/player_response.dart';
+import 'package:studio_flutter/src/injector.dart';
+import 'package:studio_flutter/src/utils/constants.dart';
+
+import '../model/player_response/player.dart';
 
 class PlayerRepository {
   final Dio client = injector<Dio>();

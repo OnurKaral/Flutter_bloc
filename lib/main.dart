@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studio_flutter/bloc/get_players/get_all_players_cubit.dart';
-import 'package:studio_flutter/injector.dart';
-import 'package:studio_flutter/presentation/main_screen.dart';
+import 'package:studio_flutter/src/injector.dart';
+import 'package:studio_flutter/src/presentation/bloc/get_players/get_all_players_cubit.dart';
+import 'package:studio_flutter/src/presentation/views/main_screen.dart';
 
 Future<void> main() async {
-  await initializeDependencies();
+  setup();
   runApp(const MyApp());
 }
 

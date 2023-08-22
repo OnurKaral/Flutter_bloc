@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studio_flutter/injector.dart';
-
-import '../bloc/get_player/get_player_cubit.dart';
+import 'package:studio_flutter/src/injector.dart';
+import 'package:studio_flutter/src/presentation/bloc/get_player/get_player_cubit.dart';
 
 class PlayerDetailPage extends StatelessWidget {
   final int playerId;

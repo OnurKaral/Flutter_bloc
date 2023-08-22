@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studio_flutter/bloc/get_players/get_all_players_cubit.dart';
-import 'package:studio_flutter/presentation/player_detail_page.dart';
-import 'package:studio_flutter/presentation/player_search_detail_page.dart';
+import 'package:studio_flutter/src/presentation/bloc/get_players/get_all_players_cubit.dart';
+import 'package:studio_flutter/src/presentation/views/player_detail_page.dart';
+import 'package:studio_flutter/src/presentation/views/player_search_detail_page.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

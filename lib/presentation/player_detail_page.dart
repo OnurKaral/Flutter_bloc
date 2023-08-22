@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_flutter/repository/player_repository.dart';
@@ -13,7 +12,7 @@ class PlayerDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetPlayerCubit(repository: PlayerRepository(Dio())),
+      create: (context) => GetPlayerCubit(repository: PlayerRepository()),
       child: Player(
         playerId: playerId,
       ),
@@ -45,6 +44,15 @@ class _Player extends State<Player> {
 
 class _PlayerDetail extends StatelessWidget {
   const _PlayerDetail();
+
+  @override
+  Widget build(BuildContext context) {
+    return const PlayerDetailPageWidget();
+  }
+}
+
+class PlayerDetailPageWidget extends StatelessWidget {
+  const PlayerDetailPageWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

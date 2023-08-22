@@ -1,11 +1,12 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_flutter/bloc/get_players/get_all_players_cubit.dart';
+import 'package:studio_flutter/injector.dart';
 import 'package:studio_flutter/presentation/main_screen.dart';
 import 'package:studio_flutter/repository/player_repository.dart';
 
-void main() {
+Future<void> main() async {
+  await initializeDependencies();
   runApp(const MyApp());
 }
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
           create: (context) =>
-              GetAllPlayerCubit(repository: PlayerRepository(Dio())),
+              GetAllPlayerCubit(repository: PlayerRepository()),
           child: const PlayerList()),
     );
   }

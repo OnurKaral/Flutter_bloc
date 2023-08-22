@@ -20,4 +20,14 @@ class GetPlayerCubit extends Cubit<GetPlayerState> {
       emit(const GetPlayerFail('Bir hata oluştu'));
     }
   }
+
+  void getPlayerSearch(String playerName) async {
+    try {
+      emit(GetPlayerLoading());
+      final player = await repository.getPlayerSearch(playerName);
+      emit(GetPlayerSuccess(player!));
+    } catch (e) {
+      emit(const GetPlayerFail('Bir hata oluştu'));
+    }
+  }
 }

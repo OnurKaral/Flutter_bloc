@@ -1,4 +1,4 @@
-part of 'get_player_bloc.dart';
+part of 'get_player_cubit.dart';
 
 abstract class GetPlayerState extends Equatable {
   const GetPlayerState();

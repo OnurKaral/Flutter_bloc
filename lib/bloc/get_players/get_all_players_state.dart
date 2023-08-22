@@ -1,4 +1,4 @@
-part of 'get_all_players_bloc.dart';
+part of 'get_all_players_cubit.dart';
 
 abstract class GetAllPlayersState extends Equatable {
   const GetAllPlayersState();
@@ -14,7 +14,7 @@ class GetAllPlayersLoading extends GetAllPlayersState {}
 class GetAllPlayersSuccess extends GetAllPlayersState {
   const GetAllPlayersSuccess(this.response);
 
-  final AllPlayersResponse response;
+  final PlayerResponse response;
 
   @override
   List<Object?> get props => [response];

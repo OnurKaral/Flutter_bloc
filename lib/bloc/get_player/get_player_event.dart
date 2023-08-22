@@ -1,4 +1,4 @@
-part of 'get_player_bloc.dart';
+part of 'get_player_cubit.dart';
 
 abstract class GetPlayerEvent extends Equatable {
   const GetPlayerEvent();
@@ -9,5 +9,6 @@ abstract class GetPlayerEvent extends Equatable {
 
 class OnGetPlayerEvent extends GetPlayerEvent {
   final int playerId;
+
   const OnGetPlayerEvent(this.playerId);
 }

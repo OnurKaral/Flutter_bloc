@@ -1,17 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:studio_flutter/repository/player_repository.dart';
 
-import 'bloc/get_player/get_player_bloc.dart';
+import '../bloc/get_player/get_player_cubit.dart';
 
 class PlayerDetailPage extends StatelessWidget {
-  const PlayerDetailPage({super.key, required this.playerId});
-
   final int playerId;
+
+  const PlayerDetailPage({super.key, required this.playerId});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetPlayerBloc(),
+      create: (context) => GetPlayerCubit(repository: PlayerRepository(Dio())),
       child: Player(
         playerId: playerId,
       ),
@@ -20,8 +22,9 @@ class PlayerDetailPage extends StatelessWidget {
 }
 
 class Player extends StatefulWidget {
-  const Player({super.key, required this.playerId});
   final int playerId;
+
+  const Player({super.key, required this.playerId});
 
   @override
   State<Player> createState() => _Player();
@@ -31,7 +34,7 @@ class _Player extends State<Player> {
   @override
   initState() {
     super.initState();
-    context.read<GetPlayerBloc>().add(OnGetPlayerEvent(widget.playerId));
+    context.read<GetPlayerCubit>().getPlayer(widget.playerId);
   }
 
   @override
@@ -51,7 +54,7 @@ class _PlayerDetail extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            BlocBuilder<GetPlayerBloc, GetPlayerState>(
+            BlocBuilder<GetPlayerCubit, GetPlayerState>(
               builder: (context, state) {
                 if (state is GetPlayerLoading) {
                   return const CircularProgressIndicator();
@@ -80,12 +83,12 @@ class _PlayerDetail extends StatelessWidget {
                             ),
                             const SizedBox(height: 8.0),
                             Text(
-                              'Team: ${state.response.team.name}',
+                              'Team: ${state.response.team?.name}',
                               style: const TextStyle(fontSize: 16.0),
                             ),
                             const SizedBox(height: 8.0),
                             Text(
-                              'Team City: ${state.response.team.city}',
+                              'Team City: ${state.response.team?.city}',
                               style: const TextStyle(fontSize: 16.0),
                             ),
                             const SizedBox(height: 8.0),

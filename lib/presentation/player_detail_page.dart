@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:studio_flutter/repository/player_repository.dart';
+import 'package:studio_flutter/injector.dart';
 
 import '../bloc/get_player/get_player_cubit.dart';
 
@@ -12,7 +12,7 @@ class PlayerDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetPlayerCubit(repository: PlayerRepository()),
+      create: (context) => injector<GetPlayerCubit>(),
       child: Player(
         playerId: playerId,
       ),

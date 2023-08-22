@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:studio_flutter/injector.dart';
 import 'package:studio_flutter/presentation/player_detail_page.dart';
-import 'package:studio_flutter/repository/player_repository.dart';
 
 import '../bloc/get_player/get_player_cubit.dart';
 
@@ -13,7 +13,7 @@ class PlayerSearchDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetPlayerCubit(repository: PlayerRepository()),
+      create: (context) => injector<GetPlayerCubit>(),
       child: Player(
         playerName: playerName,
       ),

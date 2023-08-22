@@ -17,7 +17,7 @@ class GetAllPlayerCubit extends Cubit<GetAllPlayersState> {
   void getAllPlayers() async {
     try {
       emit(GetAllPlayersLoading());
-      final players = await useCase.repository.getAllPlayers();
+      final players = await useCase.getAllPlayers();
 
       emit(GetAllPlayersSuccess(players));
     } catch (e) {

@@ -22,26 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
           create: (context) => injector<GetAllPlayerCubit>(),
-          child: const PlayerList()),
+          child: const MainScreen()),
     );
-  }
-}
-
-class PlayerList extends StatefulWidget {
-  const PlayerList({super.key});
-
-  @override
-  State<PlayerList> createState() => _PlayerList();
-}
-
-class _PlayerList extends State<PlayerList> {
-  @override
-  initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return const MainScreen();
   }
 }

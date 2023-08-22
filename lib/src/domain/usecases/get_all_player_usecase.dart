@@ -5,7 +5,7 @@ class GetAllPlayerUseCase {
   late final PlayerRepository repository;
   GetAllPlayerUseCase(this.repository);
 
-  Future<PlayerResponse> call() async {
-    return await repository.getAllPlayers();
+  Future<PlayerResponse> getAllPlayers() {
+    return  repository.getAllPlayers();
   }
 }

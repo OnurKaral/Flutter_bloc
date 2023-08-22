@@ -3,9 +3,10 @@ import 'package:studio_flutter/src/domain/repository/player_repository.dart';
 
 class GetAllPlayerUseCase {
   late final PlayerRepository repository;
+
   GetAllPlayerUseCase(this.repository);
 
   Future<PlayerResponse> getAllPlayers() {
-    return  repository.getAllPlayers();
+    return repository.getAllPlayers();
   }
 }

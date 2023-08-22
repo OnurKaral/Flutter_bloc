@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_flutter/src/injector.dart';
 import 'package:studio_flutter/src/presentation/bloc/get_player/get_player_cubit.dart';
 
-
 class PlayerDetailPage extends StatelessWidget {
   final int playerId;
 
@@ -86,7 +85,7 @@ class PlayerDetailPageWidget extends StatelessWidget {
                             ),
                             const SizedBox(height: 8.0),
                             Text(
-                              'Name: ${state.response.firstName}${state.response.lastName}',
+                              'Name: ${state.response.firstName} ${state.response.lastName}',
                               style: const TextStyle(fontSize: 16.0),
                             ),
                             const SizedBox(height: 8.0),

@@ -4,7 +4,6 @@ import 'package:studio_flutter/src/injector.dart';
 import 'package:studio_flutter/src/presentation/bloc/get_player/get_player_cubit.dart';
 import 'package:studio_flutter/src/presentation/views/player_detail_page.dart';
 
-
 class PlayerSearchDetailPage extends StatelessWidget {
   final String playerName;
 

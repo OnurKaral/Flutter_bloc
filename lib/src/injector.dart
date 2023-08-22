@@ -14,9 +14,12 @@ void setup() {
     //Repository
     ..registerLazySingleton(
             () => PlayerRepository())
-    //Usecases
+
+    //UseCases
     ..registerLazySingleton(
             () => GetAllPlayerUseCase(injector<PlayerRepository>()))
+
+    //Cubits
     ..registerLazySingleton(
             () => GetPlayerCubit(repository: PlayerRepository()))
     ..registerLazySingleton(

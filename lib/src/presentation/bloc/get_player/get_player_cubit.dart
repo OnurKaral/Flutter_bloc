@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:studio_flutter/src/data/repository/player_repository.dart';
+import 'package:studio_flutter/src/domain/repository/player_repository.dart';
 
 import '../../../data/model/player_response/player.dart';
 

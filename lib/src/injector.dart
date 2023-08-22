@@ -12,8 +12,7 @@ void setup() {
     ..registerLazySingleton(Dio.new)
 
     //Repository
-    ..registerLazySingleton(
-            () => PlayerRepository())
+    ..registerLazySingleton(PlayerRepository.new)
 
     //UseCases
     ..registerLazySingleton(

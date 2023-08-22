@@ -20,22 +20,22 @@ class Team {
   });
 
   factory Team.fromJson(Map<String, dynamic> json) => Team(
-    id: json["id"],
-    abbreviation: json["abbreviation"],
-    city: json["city"],
-    conference: conferenceValues.map[json["conference"]]!,
-    division: json["division"],
-    fullName: json["full_name"],
-    name: json["name"],
-  );
+        id: json["id"],
+        abbreviation: json["abbreviation"],
+        city: json["city"],
+        conference: conferenceValues.map[json["conference"]]!,
+        division: json["division"],
+        fullName: json["full_name"],
+        name: json["name"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "abbreviation": abbreviation,
-    "city": city,
-    "conference": conferenceValues.reverse[conference],
-    "division": division,
-    "full_name": fullName,
-    "name": name,
-  };
+        "id": id,
+        "abbreviation": abbreviation,
+        "city": city,
+        "conference": conferenceValues.reverse[conference],
+        "division": division,
+        "full_name": fullName,
+        "name": name,
+      };
 }

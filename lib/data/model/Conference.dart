@@ -1,7 +1,7 @@
 enum Conference { EAST, WEST }
 
 final conferenceValues =
-EnumValues({"East": Conference.EAST, "West": Conference.WEST});
+    EnumValues({"East": Conference.EAST, "West": Conference.WEST});
 
 class EnumValues<T> {
   Map<String, T> map;

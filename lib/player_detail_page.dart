@@ -27,8 +27,8 @@ class Player extends StatefulWidget {
 class _Player extends State<Player> {
   @override
   initState() {
+    super.initState();
     context.read<GetPlayerBloc>().add(const OnGetPlayerEvent());
-    print("initState Called");
   }
 
   @override
@@ -54,7 +54,7 @@ class _PlayerDetail extends StatelessWidget {
                   return const CircularProgressIndicator();
                 } else if (state is GetPlayerSuccess) {
                   return SizedBox(
-                    width: double.infinity, // Make the container take up the entire screen width
+                    width: double.infinity,
                     child: Card(
                       elevation: 4.0,
                       child: Padding(

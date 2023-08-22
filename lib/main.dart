@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_flutter/bloc/get_players/get_all_players_bloc.dart';
 import 'package:studio_flutter/player_detail_page.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -20,8 +19,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: const ColorScheme.dark(),
         ),
-        home: const PlayerList(
-        ),
+        home: const PlayerList(),
       ),
     );
   }
@@ -32,15 +30,13 @@ class PlayerList extends StatefulWidget {
 
   @override
   State<PlayerList> createState() => _PlayerList();
-
 }
 
 class _PlayerList extends State<PlayerList> {
-
   @override
   initState() {
+    super.initState();
     context.read<GetAllPlayerBloc>().add(const OnGetAllPlayerEvent());
-    print("initState Called");
   }
 
   @override

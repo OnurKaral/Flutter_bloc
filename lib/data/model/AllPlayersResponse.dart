@@ -11,5 +11,4 @@ class AllPlayersResponse {
       AllPlayersResponse(
         data: List<Player>.from(json["data"].map((x) => Player.fromJson(x))),
       );
-
 }

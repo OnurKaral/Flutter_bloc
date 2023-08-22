@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:studio_flutter/constants.dart';
-import 'package:studio_flutter/data/model/AllPlayersResponse.dart';
+import 'package:studio_flutter/data/model/all_players_response.dart';
 
 part 'get_all_players_event.dart';
 part 'get_all_players_state.dart';

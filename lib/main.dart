@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         title: 'NBA Players',
         theme: ThemeData(
           colorScheme: const ColorScheme.dark(),
+          useMaterial3: true,
         ),
         home: const PlayerList(),
       ),

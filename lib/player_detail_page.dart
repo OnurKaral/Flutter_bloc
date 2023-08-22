@@ -11,14 +11,17 @@ class PlayerDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GetPlayerBloc(playerId),
-      child: const Player(),
+      create: (context) => GetPlayerBloc(),
+      child: Player(
+        playerId: playerId,
+      ),
     );
   }
 }
 
 class Player extends StatefulWidget {
-  const Player({super.key});
+  const Player({super.key, required this.playerId});
+  final int playerId;
 
   @override
   State<Player> createState() => _Player();
@@ -28,7 +31,7 @@ class _Player extends State<Player> {
   @override
   initState() {
     super.initState();
-    context.read<GetPlayerBloc>().add(const OnGetPlayerEvent());
+    context.read<GetPlayerBloc>().add(OnGetPlayerEvent(widget.playerId));
   }
 
   @override

@@ -1,4 +1,4 @@
-import 'Conference.dart';
+import 'conference.dart';
 
 class Team {
   int id;

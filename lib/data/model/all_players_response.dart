@@ -1,4 +1,4 @@
-import 'Player.dart';
+import 'player.dart';
 
 class AllPlayersResponse {
   List<Player> data;

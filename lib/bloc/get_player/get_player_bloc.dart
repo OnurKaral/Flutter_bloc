@@ -3,13 +3,13 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:studio_flutter/constants.dart';
-import 'package:studio_flutter/data/model/Player.dart';
+import 'package:studio_flutter/data/model/player.dart';
 
 part 'get_player_event.dart';
 part 'get_player_state.dart';
 
 class GetPlayerBloc extends Bloc<GetPlayerEvent, GetPlayerState> {
-  GetPlayerBloc(int playerId) : super(GetPlayerInitial()) {
+  GetPlayerBloc() : super(GetPlayerInitial()) {
     on<OnGetPlayerEvent>((event, emit) async {
       emit(GetPlayerLoading());
 
@@ -18,7 +18,7 @@ class GetPlayerBloc extends Bloc<GetPlayerEvent, GetPlayerState> {
       dio.interceptors.add(PrettyDioLogger());
 
       final response = await dio.get(
-        "${Constants.BASE_URL}players/$playerId",
+        "${Constants.BASE_URL}players/${event.playerId}",
       );
 
       Player player = Player.fromJson(response.data);

@@ -8,5 +8,6 @@ abstract class GetPlayerEvent extends Equatable {
 }
 
 class OnGetPlayerEvent extends GetPlayerEvent {
-  const OnGetPlayerEvent();
+  final int playerId;
+  const OnGetPlayerEvent(this.playerId);
 }

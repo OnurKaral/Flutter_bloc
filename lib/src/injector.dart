@@ -5,6 +5,7 @@ import 'package:studio_flutter/src/domain/usecases/get_all_player_usecase.dart';
 import 'package:studio_flutter/src/domain/usecases/get_player_search_usecase.dart';
 import 'package:studio_flutter/src/domain/usecases/get_player_usecase.dart';
 import 'package:studio_flutter/src/presentation/bloc/get_player/get_player_cubit.dart';
+import 'package:studio_flutter/src/presentation/bloc/get_player_search/get_player_search_cubit.dart';
 import 'package:studio_flutter/src/presentation/bloc/get_players/get_all_players_cubit.dart';
 
 final injector = GetIt.instance;
@@ -22,6 +23,7 @@ void setup() {
     ..registerLazySingleton(() => GetPlayerSearchUseCase(injector()))
 
     //Cubits
-    ..registerFactory(GetPlayerCubit.new)
+    ..registerFactory(() => GetPlayerCubit(injector()))
+    ..registerFactory(() => GetPlayerSearchCubit(injector()))
     ..registerFactory(GetAllPlayerCubit.new);
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:studio_flutter/src/injector.dart';
-import 'package:studio_flutter/src/presentation/bloc/get_player/get_player_cubit.dart';
+import 'package:studio_flutter/src/presentation/bloc/get_player_search/get_player_search_cubit.dart';
 import 'package:studio_flutter/src/presentation/views/player_detail_page.dart';
 
 class PlayerSearchDetailPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class PlayerSearchDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => injector<GetPlayerCubit>(),
+      create: (context) => injector<GetPlayerSearchCubit>(),
       child: Player(
         playerName: playerName,
       ),
@@ -33,7 +33,7 @@ class _Player extends State<Player> {
   @override
   initState() {
     super.initState();
-    context.read<GetPlayerCubit>().getPlayerSearch(widget.playerName);
+    context.read<GetPlayerSearchCubit>().getPlayerSearch(widget.playerName);
   }
 
   @override

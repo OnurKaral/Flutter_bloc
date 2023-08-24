@@ -4,7 +4,6 @@ import 'package:studio_flutter/src/data/model/player_response/player_response.da
 import 'package:studio_flutter/src/domain/usecases/get_all_player_usecase.dart';
 import 'package:studio_flutter/src/injector.dart';
 
-part 'get_all_players_event.dart';
 part 'get_all_players_state.dart';
 
 class GetAllPlayerCubit extends Cubit<GetAllPlayersState> {
@@ -12,7 +11,7 @@ class GetAllPlayerCubit extends Cubit<GetAllPlayersState> {
     getAllPlayers();
   }
 
-  void getAllPlayers() async {
+  Future<void> getAllPlayers() async {
     try {
       emit(GetAllPlayersLoading());
       final players = await injector<GetAllPlayerUseCase>().getAllPlayers();

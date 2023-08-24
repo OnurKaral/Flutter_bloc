@@ -1,20 +1,21 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:studio_flutter/src/data/model/player_response/player_response.dart';
+import 'package:studio_flutter/src/domain/entities/PlayerResponseEntity.dart';
 import 'package:studio_flutter/src/domain/usecases/get_all_player_usecase.dart';
-import 'package:studio_flutter/src/injector.dart';
 
 part 'get_all_players_state.dart';
 
 class GetAllPlayerCubit extends Cubit<GetAllPlayersState> {
-  GetAllPlayerCubit() : super(GetAllPlayersInitial()) {
+  GetAllPlayerCubit(this.useCase) : super(GetAllPlayersInitial()) {
     getAllPlayers();
   }
+
+  final GetAllPlayerUseCase useCase;
 
   Future<void> getAllPlayers() async {
     try {
       emit(GetAllPlayersLoading());
-      final players = await injector<GetAllPlayerUseCase>().getAllPlayers();
+      final players = await useCase.getAllPlayers();
 
       emit(GetAllPlayersSuccess(players));
     } catch (e) {

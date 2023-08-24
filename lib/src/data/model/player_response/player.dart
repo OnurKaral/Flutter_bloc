@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:studio_flutter/src/domain/entities/PlayerEntity.dart';
 
 import 'team.dart';
 
@@ -35,6 +36,18 @@ class Player {
   factory Player.fromJson(Map<String, dynamic> json) => _$PlayerFromJson(json);
 
   Map<String, dynamic> toJson() => _$PlayerToJson(this);
+
+  PlayerEntity toEntity() {
+    return PlayerEntity(
+        id: id,
+        firstName: firstName,
+        heightFeet: heightFeet,
+        heightInches: heightInches,
+        lastName: lastName,
+        position: position,
+        team: team?.toEntity(),
+        weightPounds: weightPounds);
+  }
 
   @override
   bool operator ==(Object other) {

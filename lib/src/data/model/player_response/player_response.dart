@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:studio_flutter/src/domain/entities/PlayerResponseEntity.dart';
 
 import 'player.dart';
 
@@ -13,6 +14,10 @@ class PlayerResponse {
 
   factory PlayerResponse.fromJson(Map<String, dynamic> json) {
     return _$PlayerResponseFromJson(json);
+  }
+
+  PlayerResponseEntity toEntity() {
+    return PlayerResponseEntity(data: data?.map((e) => e.toEntity()).toList());
   }
 
   Map<String, dynamic> toJson() => _$PlayerResponseToJson(this);

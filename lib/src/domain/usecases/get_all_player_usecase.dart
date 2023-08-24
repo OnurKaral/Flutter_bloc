@@ -1,12 +1,12 @@
-import 'package:studio_flutter/src/data/model/player_response/player_response.dart';
-import 'package:studio_flutter/src/domain/repository/player_repository.dart';
+import 'package:studio_flutter/src/domain/entities/PlayerResponseEntity.dart';
+import 'package:studio_flutter/src/domain/repository/players_repository.dart';
 
 class GetAllPlayerUseCase {
-  late final PlayerRepository repository;
+  final PlayersRepository repository;
 
   GetAllPlayerUseCase(this.repository);
 
-  Future<PlayerResponse> getAllPlayers() {
+  Future<PlayerResponseEntity> getAllPlayers() {
     return repository.getAllPlayers();
   }
 }

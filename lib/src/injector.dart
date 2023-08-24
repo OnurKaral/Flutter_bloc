@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:studio_flutter/src/data/remote/api_service.dart';
+import 'package:studio_flutter/src/data/repository/players_repository_impl.dart';
 import 'package:studio_flutter/src/domain/repository/player_repository.dart';
+import 'package:studio_flutter/src/domain/repository/players_repository.dart';
 import 'package:studio_flutter/src/domain/usecases/get_all_player_usecase.dart';
 import 'package:studio_flutter/src/domain/usecases/get_player_search_usecase.dart';
 import 'package:studio_flutter/src/domain/usecases/get_player_usecase.dart';
@@ -10,12 +13,15 @@ import 'package:studio_flutter/src/presentation/bloc/get_players/get_all_players
 
 final injector = GetIt.instance;
 
-void setup() {
+Future<void> setup() async {
   injector
     ..registerLazySingleton(Dio.new)
 
     //Repository
     ..registerLazySingleton(PlayerRepository.new)
+    ..registerLazySingleton(ApiService.new)
+    ..registerLazySingleton<PlayersRepository>(
+        () => PlayersRepositoryImpl(apiService: injector()))
 
     //UseCases
     ..registerLazySingleton(() => GetAllPlayerUseCase(injector()))
@@ -25,5 +31,5 @@ void setup() {
     //Cubits
     ..registerFactory(() => GetPlayerCubit(injector()))
     ..registerFactory(() => GetPlayerSearchCubit(injector()))
-    ..registerFactory(GetAllPlayerCubit.new);
+    ..registerFactory(() => GetAllPlayerCubit(injector()));
 }

@@ -14,7 +14,7 @@ class GetAllPlayersLoading extends GetAllPlayersState {}
 class GetAllPlayersSuccess extends GetAllPlayersState {
   const GetAllPlayersSuccess(this.response);
 
-  final PlayerResponse response;
+  final PlayerResponseEntity response;
 
   @override
   List<Object?> get props => [response];

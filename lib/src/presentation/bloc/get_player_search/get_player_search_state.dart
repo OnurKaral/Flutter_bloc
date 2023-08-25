@@ -14,7 +14,7 @@ class GetPlayerLoading extends GetPlayerSearchState {}
 class GetPlayerSuccess extends GetPlayerSearchState {
   const GetPlayerSuccess(this.response);
 
-  final Player response;
+  final PlayerEntity response;
 
   @override
   List<Object?> get props => [response];
